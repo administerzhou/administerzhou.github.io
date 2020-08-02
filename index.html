@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+   .box{
+       width: 100%;
+       height: 500px;
+       position: relative;
+   }
+    .box-bg{
+        width: 100%;
+        height: 100%;
+        background-repeat:no-repeat;
+        background-position:center top;
+        background-size:auto 100%;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+   }
+   .box-bg:nth-child(1){
+       opacity: 1;
+   }
+   .box-nv{
+       position: absolute;
+       bottom: 120px;
+       right: 200px;
+   }
+   .box-nv li{
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        background-color:gray;
+        margin-right: 12px;
+        float: left;
+   }
+   .box-nv li:nth-child(1){
+       background-color:antiquewhite;
+   }
+   .box-nv li:hover{
+       cursor: pointer;
+       background-color:antiquewhite;
+   }
+</style>
+<body>
+        <div class="box">
+            <div class="box-bg" style="background-image: url(./photo/1.jpg);"></div>
+            <div class="box-bg" style="background-image: url(./photo/2.jpg);"></div>
+            <div class="box-bg" style="background-image: url(./photo/3.jpg);"></div>
+            <div class="box-bg" style="background-image: url(./photo/4.jpg);"></div>
+            <div class="box-bg" style="background-image: url(./photo/5.jpg);"></div>
+            <div class="box-nv">
+                <ul>
+                    <li class="bt"></li>
+                    <li class="bt"></li>
+                    <li class="bt"></li>
+                    <li class="bt"></li>
+                    <li class="bt"></li>
+                </ul>
+            </div>
+        </div>
+</body>
+<script src="./jquery-1.4.4.min.js"></script>
+<script>
+    $(function(){
+        var index=0;
+        var f;
+        dingshiqi();
+        function dingshiqi(){
+            f=setInterval(function(){
+            if(index==$(".box-bg").length-1){
+                index=0;
+                $(".box-bg").css("opacity","0");
+                $(".box-bg").eq(index).css("opacity","1");
+                $(".bt").css("background-color","gray");
+                $(".bt").eq(index).css("background-color","antiquewhite");
+            }else{
+                index ++;
+                $(".box-bg").css("opacity","0");
+                $(".box-bg").eq(index).css("opacity","1");
+                $(".bt").css("background-color","gray");
+                $(".bt").eq(index).css("background-color","antiquewhite");
+            }
+        },3000)
+        }
+       
+        $(".bt").click(function(){
+            clearInterval(f);
+            var indexx=$(this).index();
+            index=indexx;
+            $(".box-bg").css("opacity","0");
+            $(".box-bg").eq(index).css("opacity","1");
+            $(".bt").css("background-color","gray");
+            $(".bt").eq(index).css("background-color","antiquewhite");
+            dingshiqi();
+        })
+    })
+</script>
+</html>
