@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mine</title>
+    <title>Mine-my world</title>
+    <link rel="icon" type="/image/x-icon" href="./photo/MINE_bank_logo.png">
+    <link rel="dns-prefetch" href="//photo">
+    <script src="./jquery-1.4.4.min.js"></script>
 </head>
 <style>
     *{
@@ -232,30 +235,70 @@
 			</div>
        </div>
 </body>
-<script src="./jquery-1.4.4.min.js"></script>
 <script>
+    //头部菜单效果
+	$(function(){
+			//监听滚动条
+			let currentVal = 0;
+			let scrollVal = 0;
+			$(window).scroll(function () {
+			//currentVal = scrollVal;
+			scrollVal = $(window).scrollTop();
+			if (currentVal < scrollVal) {
+			//滚动条下滑，实现下滑效果
+			$(".xianshi").css("opacity","1");
+			} else {
+			//滚动条上滑，实现上滑效果
+			$(".xianshi").css("opacity","0");
+			}	
+		})
+	})
+    //给图标加hover
+    $(function(){
+	   	hover();
+	    function hover(){
+			$("#box-tou-tubiao-a").mouseover(function(){
+				$("#box-tou-tubiao-a").css("background-image","url(photo/tubiao2.png)");
+			})
+			$("#box-tou-tubiao-a").mouseleave(function(){
+				$("#box-tou-tubiao-a").css("background-image","url(photo/tubiao02.png)");
+			})
+			$("#box-tou-tubiao-b").mouseover(function(){
+				$("#box-tou-tubiao-b").css("background-image","url(photo/tubiao1.png)");
+			})
+			$("#box-tou-tubiao-b").mouseleave(function(){
+				$("#box-tou-tubiao-b").css("background-image","url(photo/tubiao01.png)");
+			})
+			$("#box-tou-tubiao-c").mouseover(function(){
+				$("#box-tou-tubiao-c").css("background-image","url(photo/tubiao3.png)");
+			})
+			$("#box-tou-tubiao-c").mouseleave(function(){
+				$("#box-tou-tubiao-c").css("background-image","url(photo/tubiao03.png)");
+			})
+	    }
+    })
+    //轮播图效果
     $(function(){
         var index=0;
         var f;
         dingshiqi();
         function dingshiqi(){
             f=setInterval(function(){
-            if(index==$(".box-shenti-lunbo").length-1){
-                index=0;
-                $(".box-shenti-lunbo").css("opacity","0");
-                $(".box-shenti-lunbo").eq(index).css("opacity","1");
-                $(".box-shenti-lunbo-bt").css("background-color","gray");
-                $(".box-shenti-lunbo-bt").eq(index).css("background-color","antiquewhite");
-            }else{
-                index ++;
-                $(".box-shenti-lunbo").css("opacity","0");
-                $(".box-shenti-lunbo").eq(index).css("opacity","1");
-                $(".box-shenti-lunbo-bt").css("background-color","gray");
-                $(".box-shenti-lunbo-bt").eq(index).css("background-color","antiquewhite");
-            }
-        },3000)
+	            if(index==$(".box-shenti-lunbo").length-1){
+	                index=0;
+	                $(".box-shenti-lunbo").css("opacity","0");
+	                $(".box-shenti-lunbo").eq(index).css("opacity","1");
+	                $(".box-shenti-lunbo-bt").css("background-color","gray");
+	                $(".box-shenti-lunbo-bt").eq(index).css("background-color","antiquewhite");
+	            }else{
+	                index ++;
+	                $(".box-shenti-lunbo").css("opacity","0");
+	                $(".box-shenti-lunbo").eq(index).css("opacity","1");
+	                $(".box-shenti-lunbo-bt").css("background-color","gray");
+	                $(".box-shenti-lunbo-bt").eq(index).css("background-color","antiquewhite");
+	            }
+        	},3000)
         }
-       
         $(".box-shenti-lunbo-bt").mouseover(function(){
             clearInterval(f);
             var indexx=$(this).index();
@@ -266,39 +309,6 @@
             $(".box-shenti-lunbo-bt").eq(index).css("background-color","antiquewhite");
             dingshiqi();
         })
-		//给图片加hover
-		$("#box-tou-tubiao-a").mouseover(function(){
-			$("#box-tou-tubiao-a").css("background-image","url(photo/tubiao2.png)");
-		})
-		$("#box-tou-tubiao-a").mouseleave(function(){
-			$("#box-tou-tubiao-a").css("background-image","url(photo/tubiao02.png)");
-		})
-		$("#box-tou-tubiao-b").mouseover(function(){
-			$("#box-tou-tubiao-b").css("background-image","url(photo/tubiao1.png)");
-		})
-		$("#box-tou-tubiao-b").mouseleave(function(){
-			$("#box-tou-tubiao-b").css("background-image","url(photo/tubiao01.png)");
-		})
-		$("#box-tou-tubiao-c").mouseover(function(){
-			$("#box-tou-tubiao-c").css("background-image","url(photo/tubiao3.png)");
-		})
-		$("#box-tou-tubiao-c").mouseleave(function(){
-			$("#box-tou-tubiao-c").css("background-image","url(photo/tubiao03.png)");
-		})
     })
-	 //监听滚动条
-	let currentVal = 0;
-	let scrollVal = 0;
-	$(window).scroll(function () {
-		//currentVal = scrollVal;
-		scrollVal = $(window).scrollTop();
-		if (currentVal < scrollVal) {
-		//滚动条下滑，实现下滑效果
-		$(".xianshi").css("opacity","1");
-		} else {
-		//滚动条上滑，实现上滑效果
-		$(".xianshi").css("opacity","0");
-		}	
-	})
 </script>
 </html>
